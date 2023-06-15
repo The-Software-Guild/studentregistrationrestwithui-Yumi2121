@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+
+     <!-- jquery -->
+     <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+
+
+  
+    <!-- Bootstrap -->  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+        crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="./bootstrap-5.1.0-dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <!-- CSS Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- jax  -->
+    <script src="myfunctions.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ 
+    
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>Student Registration</title>
+</head>
+
+    <body id="home-page">	
+
+        <!-- Nav bar -->
+
+        <div class="container" >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Student Registration Service</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li> -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="index.html#getstudents" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Existing Student
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
+                    <a class="dropdown-item" href="index.html#studentTable">Display student list</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item">Edit student</a>
+                    <a class="dropdown-item">Delete student</a>
+               
+                  </div>
+                </li>
+              </ul>
+            
+              <form class="form-inline d-flex justify-content-end">
+                <input id="seach-name" class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search">
+                <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+        </nav>   
+    </div>
+
+
+    <!-- form -->
+    <div class="container" id="form">
+        <h3>Registration Form</h3>
+
+        <div class="alert" role="alert"></div>
+
+        <form>
+            <div class="form-group">
+                <label for="exampleInputname">Student Name</label>
+                <input type="name" class="form-control" id="inputName" placeholder="" required>
+                <small class="form-text text-muted">Name are required.</small>
+            </div>
+        
+            <div class="form-group">
+                <label for="exampleInputAge">Student Age</label>
+                <input type="age" class="form-control" id="inputAge" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputMobileNo">Student Mobile</label>
+                <input type="mobile" class="form-control" id="inputMobile" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Student Address</label>
+                <select class="form-control" id="inputAddress">
+                  <option>Sydney Australia</option>
+                  <option>Melbourne Australia</option>
+                  <option>Brisbane Australia</option>
+                  <option>Perth Australia</option>
+                  <option>Other country</option>
+                </select>
+            </div>
+
+            <!-- <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+
+            <button id="addStudent" type="submit" class="btn btn-primary">Add</button>
+            <button id="update" type="submit" class="btn btn-primary">Update</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </form>
+    </div>      
+
+    <!-- display data -->
+
+        <div class=" container">
+            <section class="pb-5 header text-left">
+                <div>
+                    <button id="getstudents" class="btn btn-secondary btn-lg btn-block">Show Student List</button>
+                </div>  
+        
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card border-0 shadow">
+                            <div class="card-body p-5">
+        
+                                <!-- Responsive table -->
+                                <div class="table-responsive">
+                                    <table id="studentTable" class="table m-0 table-striped" style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Student id</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Age</th>
+                                                <th scope="col">Mobile</th>
+                                                <th scope="col">Address</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                                            
+                                        </tbody>
+                                    </table>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>
+
+    </body>
+
+</html> 
